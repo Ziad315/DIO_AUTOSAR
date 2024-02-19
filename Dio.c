@@ -5,9 +5,9 @@
  *      Author: Ziad Yakoot
  */
 
-/*=======================================================
- *                  INCLUDE FILES
- =======================================================*/
+/*================================================================
+ *                          INCLUDE FILES
+ ================================================================*/
 #include"std_types.h"
 #include "Common_macros.h"
 #include "Dio.h"
@@ -53,7 +53,7 @@ Dio_LevelType Dio_ReadChannel (Dio_ChannelType ChannelId)
 	if(ChannelId > DIO_CONFIGURED_CHANNLES)
 	{
 		errorState=E_NOT_OK;
-		//det
+		Det_ReportError(DIO_MODULE_ID, DIO_INSTANCE_ID,Dio_ReadChannel_SID, DIO_E_UNINIT);
 	}
 	else
 	{
@@ -93,7 +93,7 @@ void Dio_WriteChannel (Dio_ChannelType ChannelId,Dio_LevelType Level)
 		if(ChannelId > DIO_CONFIGURED_CHANNLES)
 		{
 			errorState=E_NOT_OK;
-			//det
+			Det_ReportError(DIO_MODULE_ID, DIO_INSTANCE_ID,Dio_WriteChannel_SID, DIO_E_UNINIT);
 		}
 		else
 		{
